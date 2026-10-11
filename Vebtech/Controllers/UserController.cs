@@ -3,6 +3,7 @@ using Core.Views;
 using Microsoft.AspNetCore.Mvc;
 using Core.Consts;
 using Core.Enums;
+using System.Text;
 
 namespace Vebtech.Controllers;
 
@@ -43,7 +44,7 @@ public class UserController : ControllerBase
     public async Task<IActionResult> GetAllAsync(GetAllUsersView view)
     {
         var result = await _userService.GetAllAsync(view);
-
+        return Ok(4);
         return result.StatusCode switch
         {
             ResultType.Success => Ok(result.View),
